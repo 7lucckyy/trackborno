@@ -1,8 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Card, Table, Breadcrumb } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { FaHome } from 'react-icons/fa';
 
 import {NavigationRoutes} from "../../routes"
 
@@ -14,7 +13,7 @@ function Project() {
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <div className="d-block mb-4 mb-md-0">
           <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
-            <Breadcrumb.Item href={NavigationRoutes.DashboardOverview.path}>Vuetify <FontAwesomeIcon icon={faHome} /></Breadcrumb.Item>
+            <Breadcrumb.Item href={NavigationRoutes.DashboardOverview.path}>Vuetify <FaHome /></Breadcrumb.Item>
             <Breadcrumb.Item  href={NavigationRoutes.Projects.path}>Projects</Breadcrumb.Item>  
             <Breadcrumb.Item active>Project {id}</Breadcrumb.Item>
           </Breadcrumb>

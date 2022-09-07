@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { Col, Row, Card, Form, Button, InputGroup } from 'react-bootstrap';
 import moment from "moment-timezone";
 import Datetime from "react-datetime";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { FaCalendarAlt } from 'react-icons/fa';
 import SDPPillars from '../../data/SDPPillars';
 import stiCodes from '../../data/stiCodes';
 
@@ -144,7 +143,7 @@ function ProjectForm() {
                 <Datetime timeFormat={false} onChange={setStartDate} renderInput={(props, openCalendar) => (
                     <InputGroup>
                       <InputGroup.Text>
-											<FontAwesomeIcon icon={faCalendarAlt} />
+											<FaCalendarAlt />
 											</InputGroup.Text>
                       <Form.Control required type="text" value={startDate ? moment(startDate).format("MM/DD/YYYY") : ""}
                         placeholder="mm/dd/yyyy" onFocus={openCalendar} onChange={() => { }} />
@@ -158,7 +157,7 @@ function ProjectForm() {
                 <Datetime timeFormat={false} onChange={setEndDate} renderInput={(props, openCalendar) => (
                     <InputGroup>
                       <InputGroup.Text>
-											<FontAwesomeIcon icon={faCalendarAlt} />
+											<FaCalendarAlt />
 											</InputGroup.Text>
                       <Form.Control required type="text" value={endDate ? moment(endDate).format("MM/DD/YYYY") : ""}
                         placeholder="mm/dd/yyyy" onFocus={openCalendar} onChange={() => { }} />

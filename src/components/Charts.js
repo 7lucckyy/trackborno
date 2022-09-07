@@ -28,21 +28,19 @@ ChartJS.register(
 
 export const ProjectChart = () => {
   const data = {
-    labels: ['mel', 'orf', 'col', 'wen', 'lux', 'bar','kex', 'dah', 'gar', 'ere', 'ped', 'alk','ife', 'gar', 'dal', 'kep', 'eft', 'pam','roc', 'hod', 'ket', 'tow', 'ere', 'zel', 'jud', 'kip', 'zel', 'dmb',],
+    labels: ['Maiduguri', 'Askira/Uba', 'Abadam', 'Ngala', 'Bayo', 'Gubio', 'Kala/Balge', 'Biu', 'Guzamala', 'Mafa', 'Chibok', 'Kaga', 'Konduga', 'Damboa', 'Kukawa', 'Bama', 'Gwoza', 'Magumeri', 'Jere', 'Hawul', 'Marte', 'Dikwa', 'Kwaya Kusar', 'Mobbar', 'Shani', 'Monguno', 'Nganzai'],
     datasets: [{
-      label: "No. of Projects",
-      data: [76, 14, 97, 50, 42, 70, 20, 18, 7, 10, 60, 79, 42, 58, 36, 17, 43, 44, 90, 44, 43, 35, 77, 7, 96, 94, 70,54],
-      fill:false,
-      lineTension: 0.5,
-      borderColor: "red"
-    },
-    {
-      label: "No. of Completed Projects",
+      label: "Total Number of Projects",
       data: [45, 26, 32, 75, 1, 22, 72, 72, 28, 65, 19, 6, 66, 49, 44, 87, 33, 47, 23, 98, 36, 84, 96, 42, 82, 51, 23, 66],
       fill:false,
+      backgroundColor: "#93a5be"//"#8965e0"//"#4c5680"
+    },{
+      label: "Monitored Projects",
+      data: [45, 26, 32, 75, 1, 22, 72, 72, 28, 65, 19, 6, 66, 49, 44, 87, 33, 47, 23, 98, 36, 84, 96, 42, 82, 51, 23, 66].map(number => number-10),
+      fill:false,
       lineTension: 0.5,
-      borderColor: "blue"
-    }
+      backgroundColor: "#4c5680"//"#8965e0"//"#4c5680"
+    },
   ]
   };
   const options = {
@@ -68,20 +66,25 @@ export const ProjectChart = () => {
 		responsive: true,
     plugins: {
       legend: {
-        position: "top"
+        position: "top",
+        labels: {
+          pointStyle: "circle",
+          usePointStyle: true,
+          // pointStyleWidth: 10
+        }
       },
       title: {
         display: true,
         fontSize: 18,
         position: "top",
-        text: `Total Projects/LGA`
+        text: `Total Projects/LGA against Monitored Projects`
       },
     },
     pointBackgroundColor: "black"
 	};
 
   return (
-    <Line data={data} options={options}/>
+    <Bar data={data} options={options}/>
   );
 };
 
@@ -135,5 +138,41 @@ export const BarChart = (props) => {
 
   return (
     <Bar data={data} options={options}/>
+  );
+};
+export const LineChart = (props) => {
+  const { labels = [], series = [] } = props;
+
+  const data = {
+    labels: labels,
+    datasets: series.map((serie, index) => {
+      return {
+        label: index === 0 ? "Completed Projects":"All Projects",
+        data: serie,
+        fill:false,
+        barThickness: 5,
+        lineTension: 0.5,
+        // categoryPercentage: 0.7,
+        // barPercentage: 0.5,
+        backgroundColor: index === 0 ? "#1B998B":"#C96480"
+      }
+    })
+  };
+  const options = {
+		responsive: true,
+		plugins: {
+      legend: {
+        position: "top",
+        labels: {
+          pointStyle: "circle",
+          usePointStyle: true,
+          // pointStyleWidth: 10
+        }
+      },
+    },
+	};
+
+  return (
+    <Line data={data} options={options}/>
   );
 };

@@ -6,6 +6,7 @@ import { Route, Routes, BrowserRouter} from "react-router-dom";
 import DashboardOverview from "./pages/dashboard/DashboardOverview";
 import Projects from "./pages/Projects";
 import Sites from './pages/Sites';
+import Report from './pages/Report';
 import Project from './pages/custom/Project';
 import Settings from "./pages/Settings";
 import Signin from "./pages/examples/Signin";
@@ -20,6 +21,9 @@ import Template, { BlankPage } from "./pages/Template"
 import { NavigationRoutes } from "./routes" 
 
 function App() {
+	React.useEffect(()=> {
+		document.title = "TrackBorno25"
+	}, [])
   return (
 		<BrowserRouter>
 			<Routes>
@@ -27,6 +31,7 @@ function App() {
 					<Route path={NavigationRoutes.DashboardOverview.path} element={<DashboardOverview/>}/>
 					<Route path={NavigationRoutes.Projects.path} element={<Projects/>}/>
 					<Route path={NavigationRoutes.Sites.path} element={<Sites/>}/>
+					<Route path={NavigationRoutes.Report.path} element={<Report/>}/>
 					<Route path={NavigationRoutes.Project.path} element={<Project/>}/>
 					<Route path={NavigationRoutes.Settings.path} element={<Settings/>}/>
 				</Route>

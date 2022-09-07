@@ -1,8 +1,6 @@
 
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faEnvelope, faUnlockAlt } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookF, faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { FaEnvelope, FaUnlockAlt } from "react-icons/fa";
 import { Col, Row, Form, Card, Button, FormCheck, Container, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +8,7 @@ import { NavigationRoutes } from "../../routes";
 import BgImage from "../../assets/img/illustrations/signin.svg";
 
 
-export default () => {
+export default function Signup() {
   return (
     <main>
       <section className="d-flex align-items-center my-5 mt-lg-6 mb-lg-5">
@@ -26,7 +24,7 @@ export default () => {
                     <Form.Label>Your Email</Form.Label>
                     <InputGroup>
                       <InputGroup.Text>
-                        <FontAwesomeIcon icon={faEnvelope} />
+                        <FaEnvelope />
                       </InputGroup.Text>
                       <Form.Control autoFocus required type="email" placeholder="example@company.com" />
                     </InputGroup>
@@ -35,7 +33,7 @@ export default () => {
                     <Form.Label>Your Password</Form.Label>
                     <InputGroup>
                       <InputGroup.Text>
-                        <FontAwesomeIcon icon={faUnlockAlt} />
+                        <FaUnlockAlt />
                       </InputGroup.Text>
                       <Form.Control required type="password" placeholder="Password" />
                     </InputGroup>
@@ -44,7 +42,7 @@ export default () => {
                     <Form.Label>Confirm Password</Form.Label>
                     <InputGroup>
                       <InputGroup.Text>
-                        <FontAwesomeIcon icon={faUnlockAlt} />
+                        <FaUnlockAlt />
                       </InputGroup.Text>
                       <Form.Control required type="password" placeholder="Confirm Password" />
                     </InputGroup>
