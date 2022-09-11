@@ -3,7 +3,7 @@ import React from "react";
 import { Col, Row, Button, Dropdown } from 'react-bootstrap';
 import { FaPlus, FaProjectDiagram, FaUserAlt } from "react-icons/fa";
 
-import { CardWidget, PieChartWidget, BarChartWidget } from "../../components/Widgets";
+import { CardWidget, PieChartWidget, BarChartWidget, ProjectWidget, LineChartWidget } from "../../components/Widgets";
 import UserForm from "../custom/UserForm";
 import CenteredModal from "../custom/Modal"
 import ProjectForm from "../custom/ProjectForm";
@@ -35,11 +35,11 @@ export default function DashboardOverview() {
 
       <Row className="justify-content-md-center">
         <Col xs={12} className="mb-4">
-          <BarChartWidget title="Project Statistics" value="10,567" percentage={10.57} data={monitoredProjects}/>
+          <ProjectWidget title="Project Statistics" value="10,567" percentage={10.57} data={monitoredProjects}/>
         </Col>
         {themanticPillarProjects.map(pillar =>
           <Col key={pillar.code} xs={12} sm={6} xl={3} className="mb-4">
-            <CardWidget title={`${pillar.label}`} period="Feb 1 - Apr 1"
+            <CardWidget title={`${pillar.label}`} value={pillar.value}
               icon={<pillar.icon />} iconColor="shape-tertiary"/>
           </Col>
 
@@ -49,7 +49,7 @@ export default function DashboardOverview() {
 
       <Row>
         <Col xs={12} sm={6} xl={6} className="mb-4">
-          <BarChartWidget title="Monitored Project across LGAs" data={monitoredProjects} />
+          <LineChartWidget title="Completed Project across LGAs" data={monitoredProjects} />
         </Col>
         <Col xs={12} sm={6} xl={6} className="mb-4">
           <PieChartWidget title="Projects by Themantic Pillars" data={themanticPillarProjects} />

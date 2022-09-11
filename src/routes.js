@@ -4,6 +4,7 @@ export const NavigationRoutes = {
     DashboardOverview: { path: "/home" },
     Projects: { path: "/projects" },
     Sites: { path: "/sites" },
+    Report: { path: "/report" },
     Project: { path: "/projects/:id" },
     Settings: { path: "/settings" },
     BootstrapTables: { path: "/tables/bootstrap-tables" },

@@ -1,14 +1,9 @@
 
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { Col, Row, Form, Card, Button, Container, InputGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-
-import { NavigationRoutes } from "../../routes";
+import { Col, Row, Form, Button, Container, InputGroup } from 'react-bootstrap';
 
 
-export default () => {
+export default function ForgotPassword() {
   return (
     <main>
       <section className="vh-lg-100 mt-4 mt-lg-0 bg-soft d-flex align-items-center">

@@ -16,7 +16,10 @@ export default function Navigationbar(props) {
                   {/* <Image src={Profile3} className="user-avatar md-avatar rounded-circle" /> */}
                   <FaUserCircle className="user-avatar md-avatar rounded-circle" />
                   <div className="media-body ms-2 text-white align-items-center d-none d-lg-block">
-                    <span className="mb-0 font-small fw-bold">Admin 1</span>
+                    <div className="d-flex align-items-start">
+                      <p className="mb-0 font-small fw-bold">Fatima Muhammad</p>
+                    </div>
+                      <p className="mb-0 font-small">Administrator</p>
                   </div>
                 </div>
               </Dropdown.Toggle>

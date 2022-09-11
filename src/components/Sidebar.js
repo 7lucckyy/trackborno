@@ -1,15 +1,13 @@
-
 import React, { useState } from "react";
 import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartPie, faCog, faHandHoldingUsd, faSignOutAlt, faTimes, faRocket, faMapLocation } from "@fortawesome/free-solid-svg-icons";
-import { FaUserCircle, FaChartPie } from "react-icons/fa";
-import { Nav, Badge, Image, Button, Dropdown, Accordion, Navbar } from 'react-bootstrap';
+import { FaUserCircle, FaChartPie, FaCog, FaHandHoldingUsd, FaSignOutAlt, FaTimes, FaRocket, FaLocationArrow, FaPaperclip } from "react-icons/fa";
+import { Nav, Badge, Image, Button, Dropdown, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { NavigationRoutes } from "../routes";
+
 
 export default function Sidebar(props = {}) {
   const location = useLocation();
@@ -29,7 +27,7 @@ export default function Sidebar(props = {}) {
       <Nav.Item className={navItemClassName} onClick={() => setShow(false)}>
         <Nav.Link {...linkProps} target={target} className={classNames}>
           <span>
-            {icon ? <span className="sidebar-icon"><FontAwesomeIcon icon={icon} /> </span> : null}
+            {icon ? <span className="sidebar-icon">{icon} </span> : null}
             {image ? <Image src={image} width={20} height={20} className="sidebar-icon svg-icon" /> : null}
 
             <span className="sidebar-text">{title}</span>
@@ -60,31 +58,33 @@ export default function Sidebar(props = {}) {
               <div className="d-flex align-items-center">
                 <div className="user-avatar lg-avatar me-4">
                   {/* <Image src={ProfilePicture} className="card-img-top rounded-circle border-white" /> */}
-                  <FaUserCircle size={100} className="card-img-top rounded-circle border-white"/>
+                  <FaUserCircle size={120} className="card-img-top rounded-circle border-white"/>
                 </div>
                 <div className="d-block">
-                  <h6>Hi, Admin</h6>
+                  <h6 className="mb-0">Hi, Fatima Muhammad</h6>
+                  <p className="mt-0">Administrator</p>
                   <Button as={Link} variant="secondary" size="xs" to={NavigationRoutes.Signin.path} className="text-dark">
-                    <FontAwesomeIcon icon={faSignOutAlt} className="me-2" /> Sign Out
+                    <FaSignOutAlt className="me-2" /> Sign Out
                   </Button>
                 </div>
               </div>
               <Nav.Link className="collapse-close d-md-none" onClick={onCollapse}>
-                <FontAwesomeIcon icon={faTimes} />
+                <FaTimes />
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
               <Nav.Item className="mb-5">
                   <span>
-                    <span className="sidebar-text fw-bolder fs-4"><FaChartPie/>TrackBorno25</span>
+                    <span className="sidebar-text fw-bolder fs-4">TrackBorno25</span>
                   </span>
                 {/* <Nav.Link>
                 </Nav.Link> */}
               </Nav.Item>
-              <NavItem title="Dashboard" link={NavigationRoutes.DashboardOverview.path} icon={faChartPie} />
-              <NavItem title="Projects" icon={faHandHoldingUsd} link={NavigationRoutes.Projects.path} />
-              <NavItem title="Sites" icon={faMapLocation} link={NavigationRoutes.Sites.path} />
-              <NavItem title="User Settings" icon={faCog} link={NavigationRoutes.Settings.path} />
+              <NavItem title="Dashboard" link={NavigationRoutes.DashboardOverview.path} icon={<FaChartPie/>} />
+              <NavItem title="Projects" icon={<FaHandHoldingUsd/>} link={NavigationRoutes.Projects.path} />
+              <NavItem title="Sites" icon={<FaLocationArrow/>} link={NavigationRoutes.Sites.path} />
+              <NavItem title="Report" icon={<FaPaperclip/>} link={NavigationRoutes.Report.path} />
+              <NavItem title="User Settings" icon={<FaCog/>} link={NavigationRoutes.Settings.path} />
               
               {/* <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>
                 <NavItem title="Bootstrap Table" link={NavigationRoutes.BootstrapTables.path} />
@@ -95,7 +95,7 @@ export default function Sidebar(props = {}) {
 
               {/* <NavItem external title="TrackBorno25" link="https://themesberg.com" target="_blank" /> */}
               {/* <Image src={BOSG} width={150} height={150} className="mx-auto" /> */}
-              <Button as={Link} to={NavigationRoutes.Signin.path} variant="danger" className="upgrade-to-pro"><FontAwesomeIcon icon={faRocket} className="me-1" /> Logout</Button>
+              <Button as={Link} to={NavigationRoutes.Signin.path} variant="danger" className="upgrade-to-pro"><FaRocket className="me-1" /> Logout</Button>
             </Nav>
           </div>
         </SimpleBar>

@@ -11,7 +11,7 @@ export default (props) => {
             <p className="mb-0 text-center text-xl-left">
               Copyright © {`${new Date().getFullYear()} `}
               <Card.Link href="https://vuetifysolutions.netlify.app" target="_blank" className="text-blue text-decoration-none fw-normal">
-                Vuetify Solutions
+                Designed by Vuetify Solutions
               </Card.Link>
             </p>
           </Col>
